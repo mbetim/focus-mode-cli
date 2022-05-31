@@ -17,5 +17,7 @@ export const start = () => {
     }
   });
 
+  config.set("status", { isRunning: true, startedAt: Date.now() });
+
   console.log(chalk.green.bold("Focus mode started."));
 };

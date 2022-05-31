@@ -19,5 +19,7 @@ export const stop = (): void => {
 
   fs.writeFileSync(systemHostsFilePath, newFileContent);
 
+  config.set("status", { isRunning: false, startedAt: null });
+
   console.log(chalk.green.bold("Focus mode stopped."));
 };

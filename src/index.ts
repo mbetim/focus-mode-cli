@@ -5,6 +5,7 @@ import { blockedDomainsAdd } from "../commands/blocked-domains/add";
 import { blockedDomainsList } from "../commands/blocked-domains/list";
 import { blockedDomainsRemove } from "../commands/blocked-domains/remove";
 import { start } from "../commands/start";
+import { status } from "../commands/status";
 import { stop } from "../commands/stop";
 import { isAdmin } from "./utils/is-admin";
 
@@ -22,6 +23,7 @@ program
 
 program.command("start").description("Start a focus session").action(start);
 program.command("stop").description("Stop the focus session").action(stop);
+program.command("status").description("Get the status of the focus session").action(status);
 
 const blockedDomainsCommand = program
   .command("blocked-domains")
