@@ -1,10 +1,11 @@
 #! /usr/bin/env node
 
 import { Command } from "commander";
+import { blockedDomainsAdd } from "../commands/blocked-domains/add";
 import { blockedDomainsList } from "../commands/blocked-domains/list";
+import { blockedDomainsRemove } from "../commands/blocked-domains/remove";
 import { start } from "../commands/start";
 import { isAdmin } from "./utils/is-admin";
-import { config } from "./utils/stores";
 
 if (!isAdmin()) {
   console.log("You are not an administrator.");
@@ -28,5 +29,15 @@ blockedDomainsCommand
   .command("list")
   .description("List domains to block")
   .action(blockedDomainsList);
+
+blockedDomainsCommand
+  .command("add <domain>")
+  .description("Add a domain to the list of domains to block")
+  .action(blockedDomainsAdd);
+
+blockedDomainsCommand
+  .command("remove <domain>")
+  .description("Remove a domain from the list of domains to block")
+  .action(blockedDomainsRemove);
 
 program.parse();
