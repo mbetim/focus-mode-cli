@@ -1,11 +1,14 @@
+import chalk from "chalk";
 import * as fs from "fs";
+import { config } from "../src/utils/stores";
 
 const systemHostsFilePath = "C:\\Windows\\System32\\drivers\\etc\\hosts";
-const domainsToBlock = ["youtube.com", "instagram.com", "twitter.com"];
 
 export const start = () => {
-  console.log("Starting focus mode...");
+  console.log(chalk.blueBright("Starting focus mode..."));
   const hostsFile = fs.readFileSync(systemHostsFilePath);
+
+  const domainsToBlock = config.get("domainsToBlock");
 
   console.log(`* Blocking domains: ${domainsToBlock.join(", ")}`);
   domainsToBlock.forEach((domain) => {
@@ -14,5 +17,5 @@ export const start = () => {
     }
   });
 
-  console.log("Focus mode started.");
+  console.log(chalk.green.bold("Focus mode started."));
 };
