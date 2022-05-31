@@ -14,8 +14,15 @@ export const stop = (): void => {
   const newFileContent = hostsFile
     .toString()
     .split("\n")
-    .filter((line) => !domainsToBlock.includes(line))
-    .join("\n");
+    .filter((line) => {
+      for (const domain of domainsToBlock) {
+        if (line.includes(domain)) return false;
+      }
+
+      return true;
+    })
+    .join("\n")
+    .trim();
 
   fs.writeFileSync(systemHostsFilePath, newFileContent);
 
