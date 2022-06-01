@@ -1,3 +1,4 @@
+import { intervalToDuration } from "date-fns";
 import { config } from "../src/utils/stores";
 
 export const status = (): void => {
@@ -5,5 +6,12 @@ export const status = (): void => {
 
   if (!status || !status.isRunning) return console.log("Focus mode is not running.");
 
-  console.log(`Focus mode is running since ${new Date(status.startedAt).toLocaleString()}.`);
+  const startedAtDate = new Date(status.startedAt);
+  const interval = intervalToDuration({ start: startedAtDate, end: new Date() });
+
+  console.log(
+    `Focus mode is running for ${interval.hours} hours, ${interval.minutes} minutes and ${
+      interval.seconds
+    } seconds (started at ${startedAtDate.toLocaleString()}).`
+  );
 };
