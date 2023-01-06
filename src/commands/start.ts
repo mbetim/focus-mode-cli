@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import * as fs from "fs";
-import { config } from "../src/utils/stores";
+import { config } from "../utils/stores";
 
 const systemHostsFilePath = "C:\\Windows\\System32\\drivers\\etc\\hosts";
 

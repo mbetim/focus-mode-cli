@@ -1,4 +1,4 @@
-import { config } from "../../src/utils/stores";
+import { config } from "../../utils/stores";
 
 export const blockedDomainsList = () => {
   const domainsToBlock = config.get("domainsToBlock");

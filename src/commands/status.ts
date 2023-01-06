@@ -1,5 +1,5 @@
 import { intervalToDuration } from "date-fns";
-import { config } from "../src/utils/stores";
+import { config } from "../utils/stores";
 
 export const status = (): void => {
   const status = config.get("status");

@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { config } from "../../src/utils/stores";
+import { config } from "../../utils/stores";
 
 export const blockedDomainsRemove = (domain: string) => {
   const domainsToBlock = config.get("domainsToBlock");

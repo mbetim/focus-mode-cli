@@ -1,12 +1,12 @@
 #! /usr/bin/env node
 
 import { Command } from "commander";
-import { blockedDomainsAdd } from "../commands/blocked-domains/add";
-import { blockedDomainsList } from "../commands/blocked-domains/list";
-import { blockedDomainsRemove } from "../commands/blocked-domains/remove";
-import { start } from "../commands/start";
-import { status } from "../commands/status";
-import { stop } from "../commands/stop";
+import { blockedDomainsAdd } from "./commands/blocked-domains/add";
+import { blockedDomainsList } from "./commands/blocked-domains/list";
+import { blockedDomainsRemove } from "./commands/blocked-domains/remove";
+import { start } from "./commands/start";
+import { status } from "./commands/status";
+import { stop } from "./commands/stop";
 import { isAdmin } from "./utils/is-admin";
 
 if (!isAdmin()) {
